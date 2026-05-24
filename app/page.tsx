@@ -313,9 +313,9 @@ export default function HomePage() {
           </details>
         </div>
         <p className="mt-8 text-center text-sm text-ink/55">
-          More questions? Visit our{" "}
+          More questions? View the{" "}
           <Link href="/vape-wholesale-usa-discount-code" className="font-semibold text-leaf underline">
-            full FAQ page
+            complete FAQ on our codes page
           </Link>
           .
         </p>

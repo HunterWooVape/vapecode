@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/vape-distributor-coupon-code",
     "/vape-wholesale-free-shipping-code",
     "/stores/vape-wholesale-usa",
+    "/about",
     "/submit",
     "/compliance",
     "/privacy"
