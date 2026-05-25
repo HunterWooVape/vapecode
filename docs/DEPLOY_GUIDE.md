@@ -61,9 +61,11 @@
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ```
 
 > 注意：`app/actions.ts` 使用的是 `lib/supabase.ts`，它读取的是 `NEXT_PUBLIC_SUPABASE_URL` 和 `NEXT_PUBLIC_SUPABASE_ANON_KEY`。不需要 Service Role Key（因为 Server Actions 运行在服务端，但这里用的是 anon key + upsert/insert 权限）。
+> `NEXT_PUBLIC_GA_ID` 用于在 `app/layout.tsx` 注入 GA4 脚本；未配置时不会加载 Analytics。
 
 ### 配置方式（任选一种）
 

@@ -3,6 +3,7 @@
 import { Copy, ExternalLink, Tag, Store, Truck, Gift, Percent, Package, ShoppingBag } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Badge } from "@/components/Badge";
+import { trackEvent } from "@/lib/analytics";
 import type { OfferConfidence, OfferType, OfferWithMerchant } from "@/lib/types";
 
 const filters: Array<OfferConfidence | "all"> = ["all", "verified", "official", "reported", "expired"];
@@ -35,10 +36,36 @@ export function OfferTable({ offers }: { offers: OfferWithMerchant[] }) {
     return filter === "all" ? offers : offers.filter((offer) => offer.confidence === filter);
   }, [filter, offers]);
 
-  async function copyCode(code: string) {
+  async function copyCode(offer: OfferWithMerchant) {
+    const code = offer.code;
+
+    if (!code) {
+      return;
+    }
+
     await navigator.clipboard.writeText(code);
     setCopied(code);
+    trackEvent("copy_code", {
+      merchant_id: offer.merchantId,
+      merchant_name: offer.merchant.name,
+      offer_id: offer.id,
+      offer_type: offer.offerType,
+      confidence: offer.confidence,
+      code
+    });
     window.setTimeout(() => setCopied(null), 1800);
+  }
+
+  function handleSourceClick(offer: OfferWithMerchant) {
+    trackEvent("outbound_click", {
+      merchant_id: offer.merchantId,
+      merchant_name: offer.merchant.name,
+      offer_id: offer.id,
+      offer_type: offer.offerType,
+      confidence: offer.confidence,
+      outbound_type: "offer_source",
+      destination_url: offer.sourceUrl
+    });
   }
 
   return (
@@ -114,7 +141,7 @@ export function OfferTable({ offers }: { offers: OfferWithMerchant[] }) {
                     {offer.code ? (
                       <button
                         type="button"
-                        onClick={() => copyCode(offer.code as string)}
+                        onClick={() => copyCode(offer)}
                         className="focus-ring inline-flex min-w-32 items-center justify-between gap-2 rounded-md border border-ink/15 bg-paper px-3 py-2 font-bold text-ink transition hover:border-leaf"
                         aria-label={`Copy ${offer.code}`}
                       >
@@ -146,6 +173,7 @@ export function OfferTable({ offers }: { offers: OfferWithMerchant[] }) {
                   <td className="px-4 py-4">
                     <a
                       href={offer.sourceUrl}
+                      onClick={() => handleSourceClick(offer)}
                       target="_blank"
                       rel="noreferrer"
                       className="focus-ring inline-flex items-center gap-1 rounded-md text-sm font-bold text-leaf hover:text-ink"

@@ -3,6 +3,7 @@
 import { Send } from "lucide-react";
 import { useState, useTransition } from "react";
 import { submitQuoteMatch } from "@/app/actions";
+import { trackEvent } from "@/lib/analytics";
 
 export function QuoteMatchForm() {
   const [result, setResult] = useState<{ success: boolean; message: string } | null>(null);
@@ -11,8 +12,22 @@ export function QuoteMatchForm() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+    const monthlyPurchaseVolume = String(formData.get("monthlyPurchaseVolume") ?? "");
+    const licenseStatus = String(formData.get("licenseStatus") ?? "");
+    const state = String(formData.get("state") ?? "");
+
     startTransition(async () => {
       const res = await submitQuoteMatch(formData);
+
+      if (res.success) {
+        trackEvent("quote_request_submit", {
+          form_name: "quote_match",
+          monthly_purchase_volume: monthlyPurchaseVolume || "unknown",
+          license_status: licenseStatus || "unknown",
+          state: state || "unknown"
+        });
+      }
+
       setResult(
         res.success
           ? { success: true, message: res.message }

@@ -3,6 +3,7 @@
 import { Mail } from "lucide-react";
 import { useState, useTransition } from "react";
 import { subscribeNewsletter } from "@/app/actions";
+import { trackEvent } from "@/lib/analytics";
 
 export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   const [result, setResult] = useState<{ success: boolean; message: string } | null>(null);
@@ -11,8 +12,22 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+    const buyerType = String(formData.get("buyerType") ?? "");
+    const interestedCategory = String(formData.get("interestedCategories") ?? "");
+    const state = String(formData.get("state") ?? "");
+
     startTransition(async () => {
       const res = await subscribeNewsletter(formData);
+
+      if (res.success) {
+        trackEvent("newsletter_submit", {
+          form_name: compact ? "newsletter_compact" : "newsletter_full",
+          buyer_type: buyerType || "unknown",
+          interested_category: interestedCategory || "unknown",
+          state: state || "unknown"
+        });
+      }
+
       setResult(
         res.success
           ? { success: true, message: res.message }
