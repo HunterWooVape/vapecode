@@ -8,7 +8,10 @@ import { getOffersWithMerchants } from "@/lib/offers";
 export const metadata: Metadata = {
   title: "Vape Wholesale Coupon Code",
   description:
-    "Find vape wholesale coupon codes for US distributors. Verified and reported discounts from Vape Wholesale USA, The Vape Mall, Flawless Vape Shop, and more."
+    "Find vape wholesale coupon codes for US distributors. Verified and reported discounts from Vape Wholesale USA, The Vape Mall, Flawless Vape Shop, and more.",
+  alternates: {
+    canonical: "/vape-wholesale-coupon-code",
+  },
 };
 
 export default function Page() {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
   },
   description:
     "Verified wholesale vape discounts, bulk deal alerts, and buying checklists for adult US business buyers.",
+  icons: {
+    icon: "/vapekeys-icon.png",
+    shortcut: "/vapekeys-icon.png",
+    apple: "/vapekeys-icon.png"
+  },
   robots: {
     index: true,
     follow: true
@@ -42,9 +48,13 @@ export default function RootLayout({
               href="/"
               className="focus-ring inline-flex w-fit items-center gap-2 rounded-md text-lg font-bold"
             >
-              <span className="grid h-8 w-8 place-items-center rounded-md bg-ink text-sm text-paper">
-                VK
-              </span>
+              <Image
+                src="/vapekeys-icon.svg"
+                alt="VapeKeys logo"
+                width={32}
+                height={32}
+                className="rounded-md"
+              />
               VapeKeys
             </Link>
             <nav aria-label="Main navigation" className="flex flex-wrap gap-2">

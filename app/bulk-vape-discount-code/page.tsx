@@ -8,7 +8,10 @@ import { getOffersWithMerchants } from "@/lib/offers";
 export const metadata: Metadata = {
   title: "Bulk Vape Discount Code",
   description:
-    "Bulk vape discount codes and volume pricing for retailers. Automatic multi-unit discounts, wholesale tiers, and loyalty rewards from Geek Vape, VapeSourcing, and Vape Wholesale USA."
+    "Bulk vape discount codes and volume pricing for retailers. Automatic multi-unit discounts, wholesale tiers, and loyalty rewards from Geek Vape, VapeSourcing, and Vape Wholesale USA.",
+  alternates: {
+    canonical: "/bulk-vape-discount-code",
+  },
 };
 
 export default function Page() {

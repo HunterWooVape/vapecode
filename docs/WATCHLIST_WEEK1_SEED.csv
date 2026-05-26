@@ -1,0 +1,10 @@
+Week,Merchant,Source Domain,Source URL,Checked At,Changed?,Candidate Code,Candidate Offer,Same As Existing?,Action,Confidence,Notes
+Week 1,Vape Wholesale USA,vapewholesaleusa.com,https://www.vapewholesaleusa.com/reward-program,,,,"Reward program / points / store credit",,review,official,"官方来源；先核对 rewards 条款是否与现有 offer 一致。"
+Week 1,Vape Wholesale USA,vapewholesaleusa.com,https://www.vapewholesaleusa.com/clearance,,,,"Clearance / category-level discount",,review,official,"官方来源；检查是否有新的 clearance 描述或折扣范围。"
+Week 1,Vape Wholesale USA,vapewholesaleusa.com,https://www.vapewholesaleusa.com/,,,,"Homepage banner / cart / checkout discount",,verify,verified candidate,"进入站点后继续走到 cart / checkout，确认是否有自动折扣、banner code 或 shipping 提示。"
+Week 1,Vape Wholesale USA,dontpayfull.com,https://www.dontpayfull.com/at/vapewholesaleusa.com,,,,,compare,reported,"主 cross-reference 来源；核对是否出现新 code、隐藏码、失效标记。"
+Week 1,Vape Wholesale USA,couponbirds.com,https://www.couponbirds.com/codes/vapewholesaleusa.com,,,,,compare,reported,"观察站内是否给出更具体的 code、折扣额或到期时间。"
+Week 1,Vape Wholesale USA,reediscount.com,https://www.reediscount.com/vape-wholesale-usa/,,,,,compare,reported,"适合比对 free shipping、sitewide 折扣和 merchant page 描述。"
+Week 1,Vape Wholesale USA,valuecom.com,https://wholesalevapes.valuecom.com/,,,,,compare,reported,"观察是否给出更具体的 code 文案、限制条件或过期提示。"
+Week 1,Vape Wholesale USA,tenereteam.com,https://vapewholesaleusa.tenereteam.com/coupons,,,,,compare,reported,"用于交叉确认 coupon 活跃度；若内容明显模板化则在 Week 2 降级。"
+Week 1,Vape Wholesale USA,savingheist.com,https://savingheist.com/store/vape-wholesale-usa/,,,,,keep_watching,reported,"先作为观察来源；如果连续 2 周没有新增信息，可从核心 watchlist 降级。"

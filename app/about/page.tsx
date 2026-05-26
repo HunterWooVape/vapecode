@@ -4,7 +4,10 @@ import { ShieldCheck, CheckCircle2, Search, Mail, ArrowRight } from "lucide-reac
 export const metadata = {
   title: "About",
   description:
-    "VapeKeys is an independent discount tracker for US wholesale vape buyers. Learn how we verify codes, why we started, and how to work with us."
+    "VapeKeys is an independent discount tracker for US wholesale vape buyers. Learn how we verify codes, why we started, and how to work with us.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

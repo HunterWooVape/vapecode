@@ -8,7 +8,10 @@ import { getOffersWithMerchants } from "@/lib/offers";
 export const metadata: Metadata = {
   title: "Wholesale Vape Supplies Coupon",
   description:
-    "Coupons for wholesale vape supplies including coils, pods, batteries, chargers, and accessories. Deals from Vape Wholesale USA, Flawless Vape Shop, and West Coast Vape Supply."
+    "Coupons for wholesale vape supplies including coils, pods, batteries, chargers, and accessories. Deals from Vape Wholesale USA, Flawless Vape Shop, and West Coast Vape Supply.",
+  alternates: {
+    canonical: "/wholesale-vape-supplies-coupon",
+  },
 };
 
 export default function Page() {

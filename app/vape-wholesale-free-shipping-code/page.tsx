@@ -7,7 +7,10 @@ import { getOffersWithMerchants } from "@/lib/offers";
 export const metadata: Metadata = {
   title: "Vape Wholesale Free Shipping Code",
   description:
-    "Free shipping thresholds and codes for vape wholesalers. Vape Wholesale USA ($3,000+), Flawless Vape Shop ($100+), Geek Vape ($99+), The Vape Mall ($65+), and VapeSourcing ($95+)."
+    "Free shipping thresholds and codes for vape wholesalers. Vape Wholesale USA ($3,000+), Flawless Vape Shop ($100+), Geek Vape ($99+), The Vape Mall ($65+), and VapeSourcing ($95+).",
+  alternates: {
+    canonical: "/vape-wholesale-free-shipping-code",
+  },
 };
 
 export default function Page() {

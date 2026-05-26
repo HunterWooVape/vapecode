@@ -8,7 +8,10 @@ import { getOffersWithMerchants } from "@/lib/offers";
 export const metadata: Metadata = {
   title: "Vape Distributor Coupon Code",
   description:
-    "Coupon codes and wholesale accounts for vape distributors. VapeRanger wholesale licensing, Geek Vape VIP program, and distributor pricing from Vape Wholesale USA and VapeSourcing."
+    "Coupon codes and wholesale accounts for vape distributors. VapeRanger wholesale licensing, Geek Vape VIP program, and distributor pricing from Vape Wholesale USA and VapeSourcing.",
+  alternates: {
+    canonical: "/vape-distributor-coupon-code",
+  },
 };
 
 export default function Page() {

@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: "Privacy draft for the vape wholesale discount tracker MVP."
+  description: "Privacy draft for the vape wholesale discount tracker MVP.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

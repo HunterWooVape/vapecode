@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Vape Wholesale USA Discount Code",
   description:
     "Find verified and reported Vape Wholesale USA discount codes, wholesale vape deals from The Vape Mall, Flawless Vape Shop, Geek Vape, and VapeSourcing. Free shipping alerts and bulk savings for adult business buyers.",
+  alternates: {
+    canonical: "/vape-wholesale-usa-discount-code",
+  },
   keywords: [
     "vape wholesale usa discount code",
     "wholesale vape discounts",

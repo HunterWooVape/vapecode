@@ -8,7 +8,10 @@ import { getOffersWithMerchants, merchants, updatedAt } from "@/lib/offers";
 export const metadata = {
   title: "Verified Wholesale Vape Discounts & Bulk Deals | VapeKeys",
   description:
-    "VapeKeys tracks verified wholesale vape discount codes, free shipping thresholds, and bulk deals for adult US business buyers. Compare 8+ wholesale merchants."
+    "VapeKeys tracks verified wholesale vape discount codes, free shipping thresholds, and bulk deals for adult US business buyers. Compare 8+ wholesale merchants.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 function StatCard({ value, label }: { value: string; label: string }) {

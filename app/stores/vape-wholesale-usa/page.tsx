@@ -7,7 +7,10 @@ import { getMerchantById, getOffersByMerchantId } from "@/lib/offers";
 export const metadata: Metadata = {
   title: "Vape Wholesale USA Coupons and Deal History",
   description:
-    "Vape Wholesale USA coupon status, reported discount codes, reward notes, free shipping policy ($3,000+), and verification history for wholesale buyers."
+    "Vape Wholesale USA coupon status, reported discount codes, reward notes, free shipping policy ($3,000+), and verification history for wholesale buyers.",
+  alternates: {
+    canonical: "/stores/vape-wholesale-usa",
+  },
 };
 
 export default function StorePage() {

@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Compliance Notes",
-  description: "Compliance and responsible-use notes for the vape wholesale discount tracker MVP."
+  description: "Compliance and responsible-use notes for the vape wholesale discount tracker MVP.",
+  alternates: {
+    canonical: "/compliance",
+  },
 };
 
 const notes = [

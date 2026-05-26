@@ -79,3 +79,41 @@ create table if not exists quote_requests (
   review_status text not null default 'new' check (review_status in ('new', 'qualified', 'contacted', 'rejected')),
   created_at timestamptz default now()
 );
+
+alter table newsletter_subscribers enable row level security;
+alter table quote_requests enable row level security;
+alter table source_pages enable row level security;
+
+drop policy if exists "public insert newsletter subscribers" on newsletter_subscribers;
+create policy "public insert newsletter subscribers"
+on newsletter_subscribers
+for insert
+to anon, authenticated
+with check (
+  email <> ''
+  and is_21_plus = true
+  and consent_text <> ''
+);
+
+drop policy if exists "public insert quote requests" on quote_requests;
+create policy "public insert quote requests"
+on quote_requests
+for insert
+to anon, authenticated
+with check (
+  business_name <> ''
+  and business_email <> ''
+  and state <> ''
+  and partner_contact_consent = true
+  and consent_text <> ''
+);
+
+drop policy if exists "public insert source pages" on source_pages;
+create policy "public insert source pages"
+on source_pages
+for insert
+to anon, authenticated
+with check (
+  url <> ''
+  and raw_offer_text <> ''
+);
