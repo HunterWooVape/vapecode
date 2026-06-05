@@ -816,7 +816,7 @@ const confidenceOrder = {
 
 export const confidenceRank = (confidence: Offer["confidence"]) => confidenceOrder[confidence];
 
-export const updatedAt = "2026-05-23";
+export const updatedAt = "2026-06-05";
 
 export const faqItems: { question: string; answer: string }[] = [
   {
@@ -832,7 +832,12 @@ export const faqItems: { question: string; answer: string }[] = [
   {
     question: "Are these coupon codes verified to work?",
     answer:
-      "We classify every offer by confidence level. 'Official' offers come from the merchant's own site or program. 'Reported' offers come from third-party coupon sites and have not been independently verified at checkout. We never publish codes we know are expired."
+      "We classify every offer by confidence level. 'Verified' means a checkout check confirmed the code or discount. 'Official' offers come from a merchant page, program, or policy source. 'Reported' offers come from third-party coupon sources and should be tested before a large order."
+  },
+  {
+    question: "What is the difference between a coupon code and a promo code?",
+    answer:
+      "For VapeKeys, coupon code and promo code describe the same buyer intent: a code or public offer that may reduce the checkout total. We keep the confidence label more important than the wording because third-party coupon pages often use both terms loosely."
   },
   {
     question: "Can I stack multiple coupon codes on a single order?",
@@ -847,6 +852,11 @@ export const faqItems: { question: string; answer: string }[] = [
   {
     question: "Is Vape Wholesale USA legit?",
     answer:
-      "Vape Wholesale USA has been operating in the US market for over ten years and is based in Las Vegas, NV. They accept major credit cards (Visa, MasterCard, Discover) and ship throughout the United States. As with any vape purchase, buyers should verify age requirements (21+) and check their state's specific regulations."
+      "VapeKeys does not certify merchants or provide legal advice. We track public signals such as merchant pages, reward and clearance information, coupon-source reports, and buyer discussion sources. Adult business buyers should verify age, license, state, shipping, and return rules directly with the seller before ordering."
+  },
+  {
+    question: "Where should I check free shipping before buying?",
+    answer:
+      "Start with the merchant's shipping policy or checkout page, then compare it with our free shipping tracker. Public thresholds can change, and shipping availability may depend on order value, weight, location, carrier rules, and state restrictions."
   }
 ];

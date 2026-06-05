@@ -150,7 +150,7 @@ export function OfferTable({ offers }: { offers: OfferWithMerchant[] }) {
                       </button>
                     ) : (
                       <span className="inline-flex items-center gap-1 rounded-md bg-ink/5 px-2 py-1 text-xs font-medium text-ink/50">
-                        <Tag size={12} />
+                        <Tag size={12} aria-hidden="true" />
                         {offer.offerType === "free_shipping"
                           ? "Auto-applied"
                           : offer.offerType === "automatic_discount"

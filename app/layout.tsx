@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 const navItems = [
   { href: "/vape-wholesale-usa-discount-code", label: "Codes" },
-  { href: "/stores/vape-wholesale-usa", label: "Store" },
+  { href: "/stores", label: "Stores" },
   { href: "/about", label: "About" },
   { href: "/submit", label: "Submit" },
   { href: "/compliance", label: "Compliance" }

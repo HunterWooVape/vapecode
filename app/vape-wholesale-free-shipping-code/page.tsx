@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Truck } from "lucide-react";
+import { ArrowLeft, ArrowRight, Truck } from "lucide-react";
 import { OfferTable } from "@/components/OfferTable";
 import { getOffersWithMerchants } from "@/lib/offers";
 
@@ -33,7 +33,7 @@ export default function Page() {
         href="/vape-wholesale-usa-discount-code"
         className="inline-flex items-center gap-2 text-sm font-bold text-leaf hover:text-ink"
       >
-        <ArrowLeft size={16} />
+        <ArrowLeft size={16} aria-hidden="true" />
         Back to main tracker
       </Link>
       <h1 className="mt-6 text-4xl font-bold text-ink">Vape Wholesale Free Shipping Code</h1>
@@ -46,7 +46,7 @@ export default function Page() {
         {merchantsWithFreeShip.map((m) => (
           <div key={m.id} className="rounded-lg border border-ink/10 bg-white p-5 shadow-soft">
             <div className="flex items-center gap-2 text-leaf">
-              <Truck size={18} />
+              <Truck size={18} aria-hidden="true" />
               <span className="text-sm font-bold uppercase">Free Shipping</span>
             </div>
             <p className="mt-2 text-xl font-bold text-ink">{m.name}</p>
@@ -60,6 +60,26 @@ export default function Page() {
       <div className="mt-12">
         <OfferTable offers={offers} />
       </div>
+      <section className="rounded-lg border border-ink/10 bg-white p-5 shadow-soft">
+        <p className="text-sm font-bold uppercase text-leaf">Store policies</p>
+        <h2 className="mt-2 text-2xl font-bold text-ink">Open merchant profiles before checkout</h2>
+        <div className="mt-4 flex flex-wrap gap-3">
+          {[
+            { href: "/stores/vape-wholesale-usa", label: "Vape Wholesale USA shipping" },
+            { href: "/stores/flawless-vape-shop", label: "Flawless free shipping" },
+            { href: "/stores/vapesourcing", label: "VapeSourcing free shipping" }
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="focus-ring inline-flex items-center gap-2 rounded-md border border-ink/15 bg-paper px-4 py-2.5 text-sm font-bold text-ink transition hover:border-leaf hover:text-leaf"
+            >
+              {link.label}
+              <ArrowRight size={14} aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

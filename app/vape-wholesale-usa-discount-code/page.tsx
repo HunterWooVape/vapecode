@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ChevronDown, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown, Search, ShieldCheck, Store, Truck } from "lucide-react";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { OfferTable } from "@/components/OfferTable";
 import { QuoteMatchForm } from "@/components/QuoteMatchForm";
@@ -30,6 +30,37 @@ const checklist = [
   "Check whether the seller requires resale, tobacco, or vapor-product licenses.",
   "Review state restrictions, freight policies, return windows, and minimum order amounts.",
   "Treat reported coupon-site codes as leads until they are verified at checkout."
+];
+
+const intentCards = [
+  {
+    href: "/stores/vape-wholesale-usa",
+    icon: <Store size={20} aria-hidden="true" />,
+    title: "Vape Wholesale USA coupon code",
+    description:
+      "Review reported code leads, official reward signals, clearance notes, free shipping threshold, and neutral trust signals."
+  },
+  {
+    href: "/vape-wholesale-coupon-code",
+    icon: <Search size={20} aria-hidden="true" />,
+    title: "Vape wholesale promo code",
+    description:
+      "Compare coupon and promo-code intent across wholesale-friendly merchants without treating reported codes as verified."
+  },
+  {
+    href: "/vape-wholesale-free-shipping-code",
+    icon: <Truck size={20} aria-hidden="true" />,
+    title: "Vape wholesale free shipping",
+    description:
+      "Check published free shipping thresholds before assuming a discount is worth more than the freight cost."
+  },
+  {
+    href: "/stores",
+    icon: <ShieldCheck size={20} aria-hidden="true" />,
+    title: "Store profiles and source confidence",
+    description:
+      "Browse tracked merchants with offer counts, confidence mix, shipping notes, and source links for adult business buyers."
+  }
 ];
 
 const jsonLd = {
@@ -115,6 +146,40 @@ export default function DiscountCodePage() {
       </section>
 
       <OfferTable offers={offers} />
+
+      <section className="border-y border-ink/10 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <p className="text-sm font-bold uppercase text-leaf">Search intent map</p>
+          <h2 className="mt-2 text-3xl font-bold text-ink">
+            Coupon codes, promo codes, free shipping, and trust checks
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-ink/70">
+            People search these terms in different ways, but the buying question is the same: what public discount
+            signal is real enough to check before placing a wholesale order? We separate source confidence from coupon
+            discovery so reported codes do not look stronger than they are.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {intentCards.map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                className="focus-ring group rounded-lg border border-ink/10 bg-paper/60 p-5 transition hover:border-leaf hover:bg-white"
+              >
+                <div className="inline-flex items-center gap-2 text-leaf">
+                  {card.icon}
+                  <p className="text-sm font-bold uppercase">{card.title}</p>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-ink/65">{card.description}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-leaf group-hover:text-ink">
+                  Open tracker
+                  <ArrowRight size={15} aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <SavingsCalculator />
 
       <section className="mx-auto grid max-w-6xl gap-6 px-4 py-12 lg:grid-cols-2">
@@ -198,7 +263,10 @@ export default function DiscountCodePage() {
               { href: "/bulk-vape-discount-code", label: "bulk vape discount code" },
               { href: "/wholesale-vape-supplies-coupon", label: "wholesale vape supplies coupon" },
               { href: "/vape-distributor-coupon-code", label: "vape distributor coupon code" },
-              { href: "/vape-wholesale-free-shipping-code", label: "vape wholesale free shipping code" }
+              { href: "/vape-wholesale-free-shipping-code", label: "vape wholesale free shipping code" },
+              { href: "/stores/flawless-vape-shop", label: "flawless vape coupon code" },
+              { href: "/stores/vapesourcing", label: "vapesourcing coupon code" },
+              { href: "/stores/discount-vape-pen", label: "discount vape pen coupon code" }
             ].map((link) => (
               <Link
                 key={link.href}
